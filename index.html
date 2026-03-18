@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ключ к реальному управлению</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .profile { text-align: center; padding: 24px 16px; }
+    .profile-icon { font-size: 48px; margin-bottom: 8px; }
+    .profile-name { font-weight: 600; font-size: 18px; margin: 0; }
+    .profile-username { color: #666; font-size: 14px; margin-top: 4px; }
+    .welcome { font-size: 16px; line-height: 1.4; }
+    .welcome strong { display: block; margin-bottom: 4px; }
+    .nav-title { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 8px; padding: 0 4px; }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .nav-item:active { opacity: 0.9; }
+    .nav-item span { flex: 1; font-size: 15px; }
+    .nav-item .arrow { color: #999; font-size: 18px; }
+    .nav-icon { font-size: 24px; width: 28px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card profile">
+    <div class="profile-icon">🔑</div>
+    <p class="profile-name">Ключ к реальному управлению</p>
+    <p class="profile-username">@bortovoyzhurnal</p>
+  </div>
+
+  <div class="card welcome">
+    <strong id="greeting">Привет! 👋</strong>
+    <span id="tagline">Центр Виталия Жандарова — для тех, кто управляет и хочет расти.</span>
+  </div>
+
+  <div class="nav-title">Услуги центра</div>
+  <a href="#" class="nav-item"><span class="nav-icon">📚</span><span>Обучение</span><span class="arrow">›</span></a>
+  <a href="#" class="nav-item"><span class="nav-icon">🚀</span><span>Проекты</span><span class="arrow">›</span></a>
+  <a href="#" class="nav-item"><span class="nav-icon">💼</span><span>Консультации</span><span class="arrow">›</span></a>
+  <a href="#" class="nav-item"><span class="nav-icon">⚡</span><span>Управленческий спецназ</span><span class="arrow">›</span></a>
+
+  <script>
+    (function() {
+      var tg = window.Telegram && window.Telegram.WebApp;
+      if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+        var u = tg.initDataUnsafe.user;
+        var name = u.first_name || '';
+        if (u.last_name) name += ' ' + u.last_name;
+        if (name.trim()) document.getElementById('greeting').textContent = 'Привет, ' + name.trim() + '! 👋';
+      }
+      if (tg) tg.ready();
+    })();
+  </script>
+</body>
+</html>

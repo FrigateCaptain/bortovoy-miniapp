@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Консультации</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      background: none; border: none; cursor: pointer;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 20px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-badge {
+      display: inline-block;
+      background: #4090e8;
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+    .header p { font-size: 13px; color: #555; line-height: 1.5; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700;
+      color: #4090e8;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-size: 14px; color: #333; line-height: 1.6;
+    }
+    .card-text p { margin-bottom: 10px; }
+    .card-text p:last-child { margin-bottom: 0; }
+
+    /* Три этапа */
+    .phase-list { display: flex; flex-direction: column; gap: 10px; }
+    .phase-item {
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .phase-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #4090e8; color: #fff;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .phase-texts { flex: 1; }
+    .phase-title {
+      font-size: 14px; font-weight: 600; color: #222;
+      display: block; margin-bottom: 3px;
+    }
+    .phase-sub {
+      font-size: 13px; color: #555; line-height: 1.5; display: block;
+    }
+
+    /* Форматы */
+    .format-list { display: flex; flex-direction: column; gap: 8px; }
+    .format-item {
+      padding: 12px 14px;
+      background: #f5f9ff;
+      border-radius: 10px;
+      border-left: 3px solid #4090e8;
+    }
+    .format-header {
+      display: flex; align-items: baseline; gap: 8px;
+      margin-bottom: 4px;
+    }
+    .format-name {
+      font-size: 14px; font-weight: 700; color: #222;
+    }
+    .format-count {
+      font-size: 12px; color: #4090e8; font-weight: 600;
+    }
+    .format-desc {
+      font-size: 13px; color: #555; line-height: 1.5;
+    }
+
+    /* Примеры задач */
+    .examples-list { display: flex; flex-direction: column; gap: 8px; }
+    .example-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 14px; color: #333; line-height: 1.5;
+    }
+    .example-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #4090e8;
+      flex-shrink: 0; margin-top: 6px;
+    }
+
+    .result-card {
+      background: #f0f6ff;
+      border: 1.5px solid #4090e8;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 11px; font-weight: 700;
+      color: #4090e8; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .result-text {
+      font-size: 14px; color: #333; line-height: 1.6;
+    }
+    .result-text p { margin-bottom: 8px; }
+    .result-text p:last-child { margin-bottom: 0; }
+
+    .btn-link {
+      display: block;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px 16px; font-size: 16px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin: 8px 12px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="window.location.href='konsultacii.html'">‹ Консультации</button>
+
+  <div class="header">
+    <div class="header-badge">Индивидуальная работа</div>
+    <h1>Сфокусированный коучинг</h1>
+    <p>Найти точку, из которой видны устраивающие решения — на воплощение которых есть и желание, и силы</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Как это работает</div>
+    <div class="card-text">
+      <p>Работа строится в три этапа.</p>
+    </div>
+    <div class="phase-list">
+      <div class="phase-item">
+        <div class="phase-num">1</div>
+        <div class="phase-texts">
+          <span class="phase-title">Сфокусированный взгляд</span>
+          <span class="phase-sub">Найти особую точку зрения, из которой видны устраивающие решения — не «надо вкалывать с утра до вечера», а те, на воплощение которых есть и желание, и силы</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">2</div>
+        <div class="phase-texts">
+          <span class="phase-title">Сильное решение</span>
+          <span class="phase-sub">Решение, которое не нужно внедрять через принуждение — оно согласовано с особенностями ситуации, системы и самого человека, и поэтому высвобождает имеющуюся в системе энергию</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">3</div>
+        <div class="phase-texts">
+          <span class="phase-title">Усиливающие навыки</span>
+          <span class="phase-sub">Находим и развиваем навыки, которые дополняют и усиливают персональное мастерство — чтобы в дальнейшем легко справляться с гораздо большим кругом задач</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Форматы</div>
+    <div class="format-list">
+      <div class="format-item">
+        <div class="format-header">
+          <span class="format-name">Экспресс</span>
+          <span class="format-count">3 сессии</span>
+        </div>
+        <div class="format-desc">Новый взгляд на ситуацию, неочевидное сильное решение. Пройти все три этапа</div>
+      </div>
+      <div class="format-item">
+        <div class="format-header">
+          <span class="format-name">Оптимум</span>
+          <span class="format-count">6 сессий</span>
+        </div>
+        <div class="format-desc">Глубокая работа: выяснить сильные стороны, найти и воплотить сильные решения, проработать усиливающие навыки</div>
+      </div>
+      <div class="format-item">
+        <div class="format-header">
+          <span class="format-name">Сопровождение</span>
+          <span class="format-count">10 сессий</span>
+        </div>
+        <div class="format-desc">Тщательная проработка + работа с текущими задачами в режиме регулярной поддержки — когда много новых вводных и сложных ситуаций одновременно</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Примеры задач в работе</div>
+    <div class="examples-list">
+      <div class="example-item">
+        <div class="example-dot"></div>
+        <div>Команда не работает так, как должна — и непонятно почему</div>
+      </div>
+      <div class="example-item">
+        <div class="example-dot"></div>
+        <div>Наладить отношения с партнёрами или ключевыми сотрудниками</div>
+      </div>
+      <div class="example-item">
+        <div class="example-dot"></div>
+        <div>Сопровождение важного проекта: еженедельные корректировки с учётом новых вводных</div>
+      </div>
+      <div class="example-item">
+        <div class="example-dot"></div>
+        <div>Принять важное решение — и проверить ход мыслей с независимым экспертом</div>
+      </div>
+      <div class="example-item">
+        <div class="example-dot"></div>
+        <div>Последовательно разобраться с накопившимися системными вопросами</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">Каждая сессия — самостоятельный результат</div>
+    <div class="result-text">
+      <p>Сессия длится 1–1,5 часа. Очно или онлайн.</p>
+      <p>Первая сессия — бесплатно: 30–40 минут, чтобы познакомиться с форматом и понять, есть ли задачи для такой работы.</p>
+    </div>
+  </div>
+
+  <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться на пробную сессию</a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

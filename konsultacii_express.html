@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Экспресс-диагностика</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      background: none; border: none; cursor: pointer;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 20px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-badge {
+      display: inline-block;
+      background: #4090e8;
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .header p { font-size: 13px; color: #555; line-height: 1.5; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700;
+      color: #4090e8;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-size: 14px; color: #333; line-height: 1.6;
+    }
+    .card-text p { margin-bottom: 10px; }
+    .card-text p:last-child { margin-bottom: 0; }
+    .thesis-list { display: flex; flex-direction: column; gap: 10px; }
+    .thesis-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #333; line-height: 1.5;
+    }
+    .thesis-check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #e3f0fc; color: #4090e8;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* Три сценария */
+    .scenario-list { display: flex; flex-direction: column; gap: 10px; }
+    .scenario-item {
+      padding: 14px;
+      background: #f5f9ff;
+      border-radius: 10px;
+      border-left: 3px solid #4090e8;
+    }
+    .scenario-title {
+      font-size: 14px; font-weight: 700; color: #222;
+      display: block; margin-bottom: 6px;
+    }
+    .scenario-points { display: flex; flex-direction: column; gap: 4px; }
+    .scenario-point {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13px; color: #444; line-height: 1.4;
+    }
+    .sp-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #4090e8; flex-shrink: 0; margin-top: 5px;
+    }
+    .scenario-result {
+      margin-top: 8px;
+      font-size: 13px; color: #4090e8; font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .result-card {
+      background: #f0f6ff;
+      border: 1.5px solid #4090e8;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 11px; font-weight: 700;
+      color: #4090e8; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .result-text {
+      font-size: 14px; color: #333; line-height: 1.55;
+    }
+    .result-text p { margin-bottom: 8px; }
+    .result-text p:last-child { margin-bottom: 0; }
+    .duration-card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .duration-icon { font-size: 24px; flex-shrink: 0; }
+    .duration-text { font-size: 14px; color: #444; }
+    .btn-link {
+      display: block;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px 16px; font-size: 16px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin: 8px 12px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="window.location.href='konsultacii.html'">‹ Консультации</button>
+
+  <div class="header">
+    <div class="header-badge">Разовая встреча</div>
+    <h1>Экспресс-диагностика и поиск решения</h1>
+    <p>Конкретная ситуация — нестандартное решение за одну встречу</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">О чём это</div>
+    <div class="card-text">
+      <p>Бывает так: что-то не работает, что-то назревает — но ни времени, ни запроса на долгую работу нет. Нужен свежий взгляд извне, быстро и по делу.</p>
+      <p>За одну встречу разбираем конкретную ситуацию, находим точку, из которой она видна по-новому, и формулируем нестандартное решение, которое можно применить сразу.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Три типа ситуаций</div>
+    <div class="scenario-list">
+
+      <div class="scenario-item">
+        <span class="scenario-title">Что-то не так — и надо разобраться</span>
+        <div class="scenario-points">
+          <div class="scenario-point"><div class="sp-dot"></div><div>Что именно болит</div></div>
+          <div class="scenario-point"><div class="sp-dot"></div><div>Что на самом деле нужно</div></div>
+          <div class="scenario-point"><div class="sp-dot"></div><div>Что мешает это получить</div></div>
+        </div>
+        <div class="scenario-result">→ Ясность и конкретный следующий шаг</div>
+      </div>
+
+      <div class="scenario-item">
+        <span class="scenario-title">Проблемная встреча или переговоры</span>
+        <div class="scenario-points">
+          <div class="scenario-point"><div class="sp-dot"></div><div>Что происходит «за кадром» у другой стороны</div></div>
+          <div class="scenario-point"><div class="sp-dot"></div><div>Как выстроить разговор, чтобы он был продуктивным</div></div>
+          <div class="scenario-point"><div class="sp-dot"></div><div>Как получить нужный результат без конфронтации</div></div>
+        </div>
+        <div class="scenario-result">→ Подготовка и стратегия для конкретной встречи</div>
+      </div>
+
+      <div class="scenario-item">
+        <span class="scenario-title">Конфликт или сложные отношения</span>
+        <div class="scenario-points">
+          <div class="scenario-point"><div class="sp-dot"></div><div>Что на самом деле стоит за конфликтом</div></div>
+          <div class="scenario-point"><div class="sp-dot"></div><div>Почему привычные способы не работают</div></div>
+          <div class="scenario-point"><div class="sp-dot"></div><div>Как выйти из ситуации с сохранением отношений и позиций</div></div>
+        </div>
+        <div class="scenario-result">→ Понимание ситуации и план действий</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">На выходе</div>
+    <div class="result-text">
+      <p>Ясность там, где была путаница или тупик.</p>
+      <p>Нестандартное решение, которое не требует принуждать себя или других.</p>
+      <p>Конкретные шаги — что делать прямо сейчас.</p>
+    </div>
+  </div>
+
+  <div class="duration-card">
+    <div class="duration-icon">🗓</div>
+    <div class="duration-text"><strong>1,5–2,5 часа.</strong> Очно или онлайн. Предварительно — короткая анкета, чтобы встреча была максимально точной.</div>
+  </div>
+
+  <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться / задать вопрос</a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

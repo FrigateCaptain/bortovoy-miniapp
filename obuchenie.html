@@ -63,21 +63,19 @@
       flex-shrink: 0; margin-top: 1px;
     }
 
-    /* Accordion — nav-item style */
-    .accordion {
+    /* Nav blocks (replaces accordion) */
+    .nav-block {
       background: #fff;
       border-radius: 12px;
       margin: 0 12px 8px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      overflow: hidden;
-    }
-    .accordion-header {
-      display: flex; align-items: center;
       padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: inherit;
       cursor: pointer;
-      gap: 12px;
     }
-    .accordion-header:active { opacity: 0.8; }
+    .nav-block:active { opacity: 0.8; }
+    .nav-arrow { color: #ccc; font-size: 18px; flex-shrink: 0; }
     .acc-icon {
       width: 42px; height: 42px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
@@ -101,25 +99,6 @@
     }
     .accordion-duration {
       font-size: 12px; color: #999; display: block; margin-top: 4px;
-    }
-    .accordion-footer {
-      display: flex; align-items: center; justify-content: flex-end;
-      padding: 0 16px 10px;
-    }
-    .accordion-arrow {
-      font-size: 11px; color: #bbb;
-      transition: transform 0.25s;
-    }
-    .accordion.open .accordion-arrow { transform: rotate(180deg); }
-    .accordion-body {
-      display: none;
-      padding: 0 16px 16px;
-      border-top: 1px solid #f0f0f0;
-    }
-    .accordion.open .accordion-body { display: block; }
-    .accordion-body-text {
-      font-size: 14px; color: #333; line-height: 1.55;
-      margin-bottom: 12px; padding-top: 12px;
     }
     .btn-link {
       display: block; width: 100%;
@@ -200,75 +179,40 @@
   </div>
 
   <!-- Ступень 0 -->
-  <div class="accordion" onclick="toggle(this)">
-    <div class="accordion-header">
-      <div class="acc-icon acc-icon-0">⚓</div>
-      <div class="accordion-texts">
-        <span class="accordion-sub">0. Базовый тренинг</span>
-        <span class="accordion-title">Управленческая власть и влияние</span>
-        <span class="accordion-short">Как сделать систему управляемой, перестать компенсировать её дефекты и высвободить время для важного.</span>
-        <span class="accordion-duration">2 дня / 4 занятия — очно или онлайн</span>
-      </div>
+  <a href="programma_bazovyy.html" class="nav-block">
+    <div class="acc-icon acc-icon-0">⚓</div>
+    <div class="accordion-texts">
+      <span class="accordion-sub">0. Базовый тренинг</span>
+      <span class="accordion-title">Управленческая власть и влияние</span>
+      <span class="accordion-short">Как сделать систему управляемой, перестать компенсировать её дефекты и высвободить время для важного.</span>
+      <span class="accordion-duration">2 дня / 4 занятия — очно или онлайн</span>
     </div>
-    <div class="accordion-footer"><span class="accordion-arrow">▼</span></div>
-    <div class="accordion-body">
-      <div class="accordion-body-text">
-        Когда есть управляемость — не надо сплошь контролировать и тащить на себе.<br><br>
-        Руководитель осваивает власть и влияние, и компания или подразделение становится рабочим инструментом, а не обузой.<br><br>
-        А руководитель перестаёт тушить пожары и быть компенсатором прочих дефектов системы.<br><br>
-        <strong>В итоге:</strong> сделать компанию или подразделение управляемым, высвободить ресурс времени — свой и подчинённых.<br><br>
-        <em>Продолжительность — 2 дня, либо 4 занятия (очно или онлайн)</em>
-      </div>
-      <a href="programma_bazovyy.html" class="btn-secondary">Подробная программа →</a>
-      <a href="https://uc.zhandarov.com/bazovyi" class="btn-link">Записаться</a>
-    </div>
-  </div>
+    <span class="nav-arrow">›</span>
+  </a>
 
   <!-- Ступень 1 -->
-  <div class="accordion" onclick="toggle(this)">
-    <div class="accordion-header">
-      <div class="acc-icon acc-icon-1">⛵</div>
-      <div class="accordion-texts">
-        <span class="accordion-sub">1. Первая ступень</span>
-        <span class="accordion-title">Автономная система: работает хорошо и сама</span>
-        <span class="accordion-short">Как сделать систему «самоходной»: которая работает без подталкиваний, берёт на себя текущие решения и разгружает руководителя, а он переходит на стратегический трек.</span>
-        <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
-      </div>
+  <a href="programma_stupen1.html" class="nav-block">
+    <div class="acc-icon acc-icon-1">⛵</div>
+    <div class="accordion-texts">
+      <span class="accordion-sub">1. Первая ступень</span>
+      <span class="accordion-title">Автономная система: работает хорошо и сама</span>
+      <span class="accordion-short">Как сделать систему «самоходной»: которая работает без подталкиваний, берёт на себя текущие решения и разгружает руководителя, а он переходит на стратегический трек.</span>
+      <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
     </div>
-    <div class="accordion-footer"><span class="accordion-arrow">▼</span></div>
-    <div class="accordion-body">
-      <div class="accordion-body-text">
-        Система становится автономным ресурсом: работает на собственной энергии без подталкиваний, с самоконтролем вместо тотального контроля. Самостоятельно действует, разгружает руководителя, умеет сверяться — ведёт ли текущая фокусировка усилий к требуемому результату.<br><br>
-        <strong>В итоге:</strong> у руководителя — время на стратегический трек, у системы — ресурс его реализовывать.<br><br>
-        <em>Продолжительность — 3 дня, либо 6 занятий (очно или онлайн)</em>
-      </div>
-      <a href="programma_stupen1.html" class="btn-secondary">Подробная программа →</a>
-      <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться</a>
-    </div>
-  </div>
+    <span class="nav-arrow">›</span>
+  </a>
 
   <!-- Ступень 2 -->
-  <div class="accordion" onclick="toggle(this)">
-    <div class="accordion-header">
-      <div class="acc-icon acc-icon-2">🚢</div>
-      <div class="accordion-texts">
-        <span class="accordion-sub">2. Вторая ступень</span>
-        <span class="accordion-title">Устойчивая система: учитывает реальность, проявляет волю</span>
-        <span class="accordion-short">Как наладить работу, когда система сама распознаёт риски, преодолевает кризисы и всё равно движется к результату.</span>
-        <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
-      </div>
+  <a href="programma_stupen2.html" class="nav-block">
+    <div class="acc-icon acc-icon-2">🚢</div>
+    <div class="accordion-texts">
+      <span class="accordion-sub">2. Вторая ступень</span>
+      <span class="accordion-title">Устойчивая система: учитывает реальность, проявляет волю</span>
+      <span class="accordion-short">Как наладить работу, когда система сама распознаёт риски, преодолевает кризисы и всё равно движется к результату.</span>
+      <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
     </div>
-    <div class="accordion-footer"><span class="accordion-arrow">▼</span></div>
-    <div class="accordion-body">
-      <div class="accordion-body-text">
-        Система становится самостоятельно играющим партнёром: распознаёт помехи и тенденции, согласовывает принципы принятия решений, выделяет и использует сильные стороны людей. Использует с пользой кризисы и конфликты — и становится от этого лучше.<br><br>
-        <strong>В итоге:</strong> система целенаправленно движется к результату, проявляя волю и настойчивость.<br><br>
-        <em>Продолжительность — 3 дня, либо 6 занятий (очно или онлайн)</em>
-      </div>
-      <a href="programma_stupen2.html" class="btn-secondary">Подробная программа →</a>
-      <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться</a>
-    </div>
-  </div>
+    <span class="nav-arrow">›</span>
+  </a>
 
   <div class="section-title">Вопросы и запись</div>
 
@@ -293,9 +237,6 @@
   <div class="footer">@uslugi_umc_bot</div>
 
   <script>
-    function toggle(el) {
-      el.classList.toggle('open');
-    }
     var tg = window.Telegram && window.Telegram.WebApp;
     if (tg) tg.ready();
   </script>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Управленческий десант</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      background: none; border: none; cursor: pointer;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 20px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-badge {
+      display: inline-block;
+      background: #606060;
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .header p { font-size: 13px; color: #555; line-height: 1.5; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700;
+      color: #606060;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-text { font-size: 14px; color: #333; line-height: 1.6; }
+    .card-text p { margin-bottom: 10px; }
+    .card-text p:last-child { margin-bottom: 0; }
+    .thesis-list { display: flex; flex-direction: column; gap: 10px; }
+    .thesis-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #333; line-height: 1.5;
+    }
+    .thesis-check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #f0f0f0; color: #606060;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .example-list { display: flex; flex-direction: column; gap: 8px; }
+    .example-item {
+      padding: 10px 12px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      border-left: 3px solid #606060;
+      font-size: 13px; color: #444; line-height: 1.5;
+    }
+    .result-card {
+      background: #f5f5f5;
+      border: 1.5px solid #606060;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 11px; font-weight: 700;
+      color: #606060; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .result-text { font-size: 14px; color: #333; line-height: 1.55; }
+    .result-text p { margin-bottom: 8px; }
+    .result-text p:last-child { margin-bottom: 0; }
+    .btn-link {
+      display: block;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px 16px; font-size: 16px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin: 8px 12px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="window.location.href='specnaz.html'">‹ Назад</button>
+
+  <div class="header">
+    <div class="header-badge">Когда времени нет</div>
+    <h1>Управленческий десант</h1>
+    <p>Interim-менеджер с группой поддержки: прийти и сделать</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">О чём это</div>
+    <div class="card-text">
+      <p>Иногда ситуация не терпит: нужен результат быстро, а своих ресурсов или компетенций не хватает. Нет времени нанимать, обучать, выстраивать.</p>
+      <p>«Управленческий десант» — это внешний менеджер с командой поддержки, который заходит в компанию, разбирается в ситуации и делает. Не консультирует — делает.</p>
+      <p>Формат interim: временно, целевым образом, с передачей результата.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Когда это нужно</div>
+    <div class="thesis-list">
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Антикризисное управление: ситуация требует перелома — быстро</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Реструктуризация или перезапуск подразделения — нужен человек, который пройдёт этот путь вместе с командой</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Изменение технологического или управленческого цикла — требует внешней экспертизы и рук</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Ключевой менеджер выбыл или уходит — нужно закрыть разрыв без потери темпа</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Примеры из практики</div>
+    <div class="example-list">
+      <div class="example-item">Антикризисное управление в торговом доме B2C, 80 человек: падение продаж, убытки, сопротивление в коллективе → перелом и выход в плюс за 3 недели</div>
+      <div class="example-item">Реструктуризация коммерческой службы B2B, 5 департаментов: срыв планов продаж на 30–40% → отклонения не более 10%</div>
+      <div class="example-item">Изменение технологического цикла на производстве: 7 участков в цепочке изготовления — сжатые сроки, работа в действующем производстве</div>
+    </div>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">Что получает заказчик</div>
+    <div class="result-text">
+      <p>Результат — не план действий, а сделанная работа.</p>
+      <p>Передача: по завершении всё передаётся команде с объяснением логики и механизмов.</p>
+      <p>Без раскачки: команда заходит подготовленной и начинает работать сразу.</p>
+    </div>
+  </div>
+
+  <a href="https://t.me/podderzhka_cluch" class="btn-link">Обсудить задачу</a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

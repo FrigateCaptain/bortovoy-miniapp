@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Управленческий спецназ</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      background: none; border: none; cursor: pointer;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 20px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-badge {
+      display: inline-block;
+      background: #606060;
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .header p { font-size: 13px; color: #555; line-height: 1.5; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700;
+      color: #606060;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-size: 14px; color: #333; line-height: 1.6;
+    }
+    .card-text p { margin-bottom: 10px; }
+    .card-text p:last-child { margin-bottom: 0; }
+    .thesis-list { display: flex; flex-direction: column; gap: 10px; }
+    .thesis-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #333; line-height: 1.5;
+    }
+    .thesis-check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #f0f0f0; color: #606060;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .example-list { display: flex; flex-direction: column; gap: 10px; }
+    .example-item {
+      padding: 12px 14px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      border-left: 3px solid #606060;
+    }
+    .example-title { font-size: 13px; font-weight: 700; color: #333; margin-bottom: 4px; }
+    .example-text { font-size: 13px; color: #555; line-height: 1.5; }
+    .result-card {
+      background: #f5f5f5;
+      border: 1.5px solid #606060;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 11px; font-weight: 700;
+      color: #606060; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .result-text { font-size: 14px; color: #333; line-height: 1.55; }
+    .result-text p { margin-bottom: 8px; }
+    .result-text p:last-child { margin-bottom: 0; }
+    .btn-link {
+      display: block;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px 16px; font-size: 16px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin: 8px 12px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="window.location.href='specnaz.html'">‹ Назад</button>
+
+  <div class="header">
+    <div class="header-badge">Прицельные корпоративные спецпроекты</div>
+    <h1>Управленческий спецназ</h1>
+    <p>Рабочие решения для реально сложных задач</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Когда мы нужны</div>
+    <div class="thesis-list">
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div><strong>Есть острая проблема</strong> — не знаешь, как подступиться, или пробуешь, но не получается, или риски высоки, а времени на эксперименты нет</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div><strong>Пора выходить на новый уровень</strong> — но непонятно куда идти, или не хватает ресурсов, или расходы растут, а результаты не радуют</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div><strong>Надо подстраховаться</strong> — проблем особо нет, развитие идёт, но хочется перепроверить себя и свой взгляд на ситуацию</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Примеры задач</div>
+    <div class="example-list">
+      <div class="example-item">
+        <div class="example-title">Коммерческая служба: продажи падают при занятых людях</div>
+        <div class="example-text">Нашли три плоскости проблемы одновременно. Через квартал — другое понимание задач, снятая рутина, воссталовленный контроль. Через год — служба выполняет задачи лучше и требует меньше времени на управление.</div>
+      </div>
+      <div class="example-item">
+        <div class="example-title">Решения УК «тормозят» в филиалах</div>
+        <div class="example-text">Гипотеза заказчика: недостаток квалификации. Альтернативная: проблема в структуре подчинённости. Совместно с управляющими выработали систему управления филиалами — скорость изменений выросла в разы.</div>
+      </div>
+      <div class="example-item">
+        <div class="example-title">«Базар» на совещаниях, срывы сроков, кассовые разрывы</div>
+        <div class="example-text">Настроили формат диалога. Те же вопросы стали решать за полчаса. Через месяц половину вопросов перестали выносить на совещание. Срывы на производстве — в 3 раза меньше.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">Что получает заказчик</div>
+    <div class="result-text">
+      <p>Подтверждение или альтернативную гипотезу — в чём проблема и каковы причины.</p>
+      <p>Понимание, на чём сфокусироваться, чтобы сдвинуть с мёртвой точки.</p>
+      <p>План действий, учитывающий сильные стороны руководителя и компании — такой, на воплощение которого есть и желание, и силы, и ресурсы.</p>
+    </div>
+  </div>
+
+  <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться / задать вопрос</a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

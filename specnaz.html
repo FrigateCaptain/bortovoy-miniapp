@@ -24,105 +24,78 @@
     .header {
       background: #fff;
       text-align: center;
-      padding: 20px 16px;
+      padding: 24px 16px 20px;
       margin: 12px 0;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
-    .header-badge {
-      display: inline-block;
+    .header-icon {
+      width: 64px; height: 64px; border-radius: 14px;
       background: #606060;
-      color: #fff;
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      border-radius: 6px;
-      padding: 3px 10px;
-      margin-bottom: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; margin: 0 auto 12px;
     }
-    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
-    .header p { font-size: 13px; color: #888; }
-    .card {
+    .header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .header p { font-size: 14px; color: #666; }
+    .nav-block {
       background: #fff;
       border-radius: 12px;
       margin: 0 12px 8px;
-      padding: 16px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .card-title {
-      font-size: 12px; font-weight: 700;
-      color: #606060;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      margin-bottom: 10px;
-    }
-    .card-text {
-      font-size: 14px; color: #333; line-height: 1.6;
-    }
-    .card-text p { margin-bottom: 10px; }
-    .card-text p:last-child { margin-bottom: 0; }
-    .thesis-list { display: flex; flex-direction: column; gap: 10px; }
-    .thesis-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 14px; color: #333; line-height: 1.5;
-    }
-    .thesis-check {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: #f0f0f0; color: #606060;
-      font-size: 13px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .phase-list { display: flex; flex-direction: column; gap: 8px; }
-    .phase-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 12px 14px;
-      background: #f5f5f5;
-      border-radius: 10px;
-    }
-    .phase-num {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: #606060; color: #fff;
-      font-size: 13px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .phase-texts { flex: 1; }
-    .phase-title { font-size: 14px; font-weight: 600; color: #222; display: block; margin-bottom: 2px; }
-    .phase-sub { font-size: 12px; color: #666; line-height: 1.4; display: block; }
-    .result-card {
-      background: #f5f5f5;
-      border: 1.5px solid #606060;
-      border-radius: 12px;
-      margin: 0 12px 8px;
-      padding: 16px;
-    }
-    .result-label {
-      font-size: 11px; font-weight: 700;
-      color: #606060; text-transform: uppercase;
-      letter-spacing: 0.5px; margin-bottom: 8px;
-    }
-    .result-text {
-      font-size: 14px; color: #333; line-height: 1.55;
-    }
-    .result-text p { margin-bottom: 8px; }
-    .result-text p:last-child { margin-bottom: 0; }
-    .duration-card {
-      background: #fff;
-      border-radius: 12px;
-      margin: 0 12px 8px;
       padding: 14px 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: inherit;
+      cursor: pointer;
     }
-    .duration-icon { font-size: 24px; flex-shrink: 0; }
-    .duration-text { font-size: 14px; color: #444; }
-    .btn-link {
-      display: block;
-      background: #2196F3; color: #fff;
-      border: none; border-radius: 10px;
-      padding: 14px 16px; font-size: 16px; font-weight: 600;
-      text-align: center; text-decoration: none;
-      cursor: pointer; margin: 8px 12px;
+    .nav-block:active { opacity: 0.8; }
+    .nav-arrow { color: #ccc; font-size: 18px; flex-shrink: 0; }
+    .acc-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+      align-self: flex-start; margin-top: 2px;
     }
-    .btn-link:active { opacity: 0.85; }
+    .acc-icon-0 { background: #d8d8d8; }
+    .acc-icon-1 { background: #b8b8b8; }
+    .acc-icon-2 { background: #909090; }
+    .accordion-texts { flex: 1; min-width: 0; }
+    .accordion-sub {
+      font-size: 11px; color: #888; font-weight: 700;
+      display: block; margin-bottom: 2px;
+      text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .accordion-title {
+      font-size: 15px; font-weight: 600; display: block; margin-bottom: 3px;
+    }
+    .accordion-short {
+      font-size: 13px; color: #555; line-height: 1.4; display: block;
+    }
+    .section-title {
+      font-size: 12px; font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 16px 16px 8px;
+    }
+    .contact-card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: inherit;
+    }
+    .contact-card:active { opacity: 0.8; }
+    .contact-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: #2196F3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0; color: #fff;
+    }
+    .contact-label { flex: 1; }
+    .contact-label .ct { font-size: 15px; font-weight: 500; display: block; }
+    .contact-label .cs { font-size: 12px; color: #888; display: block; margin-top: 2px; }
+    .contact-arrow { color: #ccc; font-size: 18px; }
     .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
   </style>
 </head>
@@ -131,91 +104,60 @@
   <button class="back-btn" onclick="window.location.href='index.html'">‹ Назад</button>
 
   <div class="header">
-    <div class="header-badge">Интенсив для команд</div>
+    <div class="header-icon">⚡</div>
     <h1>Управленческий спецназ</h1>
-    <p>Жёсткая прокачка за короткое время</p>
+    <p>Сложные задачи — рабочие решения</p>
   </div>
 
-  <div class="card">
-    <div class="card-title">О чём это</div>
-    <div class="card-text">
-      <p>«Управленческий спецназ» — интенсивная программа для команд, которые хотят быстро и основательно поднять уровень управления. Не в теории, а в реальной практике.</p>
-      <p>За несколько дней команда проходит через плотную работу: разбирает управленческие ситуации, вырабатывает общие принципы, учится работать иначе. Результат виден сразу — в том, как люди думают, договариваются и действуют.</p>
-      <p>Формат подходит для управленческих команд, которые хотят резкого роста — без затяжного обучения и размытых результатов.</p>
+  <a href="specnaz_soprovozhdenie.html" class="nav-block">
+    <div class="acc-icon acc-icon-0">🤝</div>
+    <div class="accordion-texts">
+      <span class="accordion-sub">один в поле не воин</span>
+      <span class="accordion-title">Сопровождение / Горячая линия</span>
+      <span class="accordion-short">Свериться, обдумать, поштурмить</span>
     </div>
-  </div>
+    <span class="nav-arrow">›</span>
+  </a>
 
-  <div class="card">
-    <div class="card-title">Когда это нужно</div>
-    <div class="thesis-list">
-      <div class="thesis-item">
-        <div class="thesis-check">✓</div>
-        <div>Команда работает разобщённо: каждый сам по себе, единого подхода нет</div>
-      </div>
-      <div class="thesis-item">
-        <div class="thesis-check">✓</div>
-        <div>Управленческий уровень команды нужно поднять быстро и всерьёз</div>
-      </div>
-      <div class="thesis-item">
-        <div class="thesis-check">✓</div>
-        <div>Предстоят серьёзные изменения — и команда должна быть к ним готова</div>
-      </div>
-      <div class="thesis-item">
-        <div class="thesis-check">✓</div>
-        <div>Обычное обучение не даёт результата: слушают, но не меняются</div>
-      </div>
+  <a href="specnaz_proekty.html" class="nav-block">
+    <div class="acc-icon acc-icon-1">🎯</div>
+    <div class="accordion-texts">
+      <span class="accordion-sub">сложные точечные вопросы</span>
+      <span class="accordion-title">Управленческий спецназ</span>
+      <span class="accordion-short">Прицельные корпоративные спецпроекты</span>
     </div>
-  </div>
+    <span class="nav-arrow">›</span>
+  </a>
 
-  <div class="card">
-    <div class="card-title">Что происходит на интенсиве</div>
-    <div class="phase-list">
-      <div class="phase-item">
-        <div class="phase-num">1</div>
-        <div class="phase-texts">
-          <span class="phase-title">Диагностика реальной ситуации</span>
-          <span class="phase-sub">Команда видит, как она управляет на самом деле — без прикрас</span>
-        </div>
-      </div>
-      <div class="phase-item">
-        <div class="phase-num">2</div>
-        <div class="phase-texts">
-          <span class="phase-title">Работа с управленческими инструментами</span>
-          <span class="phase-sub">Не лекции, а разборы реальных кейсов и живая практика</span>
-        </div>
-      </div>
-      <div class="phase-item">
-        <div class="phase-num">3</div>
-        <div class="phase-texts">
-          <span class="phase-title">Выработка общих принципов</span>
-          <span class="phase-sub">Команда договаривается, как будет работать дальше — конкретно и на своём языке</span>
-        </div>
-      </div>
-      <div class="phase-item">
-        <div class="phase-num">4</div>
-        <div class="phase-texts">
-          <span class="phase-title">Закрепление в действии</span>
-          <span class="phase-sub">Переход от понимания к устойчивым привычкам управления</span>
-        </div>
-      </div>
+  <a href="specnaz_desant.html" class="nav-block">
+    <div class="acc-icon acc-icon-2">🪂</div>
+    <div class="accordion-texts">
+      <span class="accordion-sub">когда времени нет</span>
+      <span class="accordion-title">Управленческий десант</span>
+      <span class="accordion-short">Interim-менеджер с группой поддержки: прийти и сделать</span>
     </div>
-  </div>
+    <span class="nav-arrow">›</span>
+  </a>
 
-  <div class="result-card">
-    <div class="result-label">На выходе вы получаете</div>
-    <div class="result-text">
-      <p>Команду, которая говорит на одном управленческом языке и действует согласованно.</p>
-      <p>Конкретные договорённости — что меняем, как работаем, на что опираемся.</p>
-      <p>Заряд и импульс: после интенсива люди хотят работать иначе и знают как.</p>
+  <div class="section-title">Вопросы и запись</div>
+
+  <a href="https://t.me/podderzhka_cluch" class="contact-card">
+    <div class="contact-icon">💬</div>
+    <div class="contact-label">
+      <span class="ct">@podderzhka_cluch</span>
+      <span class="cs">Задать вопрос, записаться</span>
     </div>
-  </div>
+    <span class="contact-arrow">›</span>
+  </a>
 
-  <div class="duration-card">
-    <div class="duration-icon">🗓</div>
-    <div class="duration-text"><strong>Интенсив, 2–3 дня.</strong> Формат и программа согласуются под конкретную команду.</div>
-  </div>
-
-  <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться / задать вопрос</a>
+  <a href="https://t.me/vitaly_zhandarov" class="contact-card">
+    <div class="contact-icon" style="background:#555;">👤</div>
+    <div class="contact-label">
+      <span class="ct">@vitaly_zhandarov</span>
+      <span class="cs">Написать напрямую</span>
+    </div>
+    <span class="contact-arrow">›</span>
+  </a>
 
   <div class="footer">@uslugi_umc_bot</div>
 

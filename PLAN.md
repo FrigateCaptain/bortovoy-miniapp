@@ -24,10 +24,10 @@
 ### Этап 3 — GitHub Pages
 **Статус: ✅ завершён**
 
-- [x] Создать публичный GitHub-репозиторий
+- [x] Создать публичный GitHub-репозиторий — https://github.com/FrigateCaptain/bortovoy-miniapp
 - [x] Запушить `index.html`
 - [x] Включить GitHub Pages
-- [x] Записать URL в FACTS.md
+- [x] URL задеплоен: https://frigatecaptain.github.io/bortovoy-miniapp/
 
 ### Этап 4 — BotFather (выполняет пользователь)
 **Статус: ⏳ ожидает**

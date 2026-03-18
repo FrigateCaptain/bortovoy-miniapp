@@ -40,8 +40,8 @@
 
 | Параметр | Значение |
 |----------|----------|
-| Репозиторий | [PLACEHOLDER: ссылка на GitHub-репо] |
-| URL Mini App | [PLACEHOLDER: https://username.github.io/repo-name/] |
+| Репозиторий | https://github.com/FrigateCaptain/bortovoy-miniapp |
+| URL Mini App | https://frigatecaptain.github.io/bortovoy-miniapp/ |
 | Ветка деплоя | main |
 
 ---

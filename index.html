@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ключ к реальному управлению</title>
+  <title>Центр Виталия Жандарова</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
     * { box-sizing: border-box; }
@@ -27,7 +27,15 @@
     .profile-username { color: #666; font-size: 14px; margin-top: 4px; }
     .welcome { font-size: 16px; line-height: 1.4; }
     .welcome strong { display: block; margin-bottom: 4px; }
-    .nav-title { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin: 16px 0 8px; padding: 0 4px; }
+    .nav-title {
+      font-size: 12px;
+      color: #e8a030;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      margin: 16px 0 8px;
+      padding: 0 4px;
+    }
     .nav-item {
       display: flex;
       align-items: center;
@@ -41,28 +49,85 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     .nav-item:active { opacity: 0.9; }
-    .nav-item span { flex: 1; font-size: 15px; }
-    .nav-item .arrow { color: #999; font-size: 18px; }
-    .nav-icon { font-size: 24px; width: 28px; text-align: center; }
+    .nav-label { flex: 1; }
+    .nav-label .title { font-size: 15px; font-weight: 500; display: block; }
+    .nav-label .sub { font-size: 12px; color: #888; display: block; margin-top: 2px; }
+    .nav-item .arrow { color: #ccc; font-size: 18px; flex-shrink: 0; }
+    .nav-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      color: #fff;
+    }
+    .icon-edu { background: #e86040; }
+    .icon-proj { background: #e8a030; }
+    .icon-consult { background: #4090e8; }
+    .icon-spec { background: #606060; }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 16px;
+      padding-bottom: 8px;
+    }
   </style>
 </head>
 <body>
   <div class="card profile">
     <div class="profile-icon">🔑</div>
-    <p class="profile-name">Ключ к реальному управлению</p>
+    <p class="profile-name">Центр Виталия Жандарова<br>«Ключ к реальному управлению»</p>
     <p class="profile-username">@bortovoyzhurnal</p>
   </div>
 
   <div class="card welcome">
     <strong id="greeting">Привет! 👋</strong>
-    <span id="tagline">Центр Виталия Жандарова — для тех, кто управляет и хочет расти.</span>
+    <span id="tagline">Обучение, консультации и проекты для управленцев.</span>
   </div>
 
   <div class="nav-title">Услуги центра</div>
-  <a href="#" class="nav-item"><span class="nav-icon">📚</span><span>Обучение</span><span class="arrow">›</span></a>
-  <a href="#" class="nav-item"><span class="nav-icon">🚀</span><span>Проекты</span><span class="arrow">›</span></a>
-  <a href="#" class="nav-item"><span class="nav-icon">💼</span><span>Консультации</span><span class="arrow">›</span></a>
-  <a href="#" class="nav-item"><span class="nav-icon">⚡</span><span>Управленческий спецназ</span><span class="arrow">›</span></a>
+
+  <a href="#" class="nav-item">
+    <span class="nav-icon icon-edu">📚</span>
+    <span class="nav-label">
+      <span class="title">Обучение</span>
+      <span class="sub">Программы и мастер-классы</span>
+    </span>
+    <span class="arrow">›</span>
+  </a>
+
+  <a href="#" class="nav-item">
+    <span class="nav-icon icon-proj">🚀</span>
+    <span class="nav-label">
+      <span class="title">Проекты</span>
+      <span class="sub">Корпоративные и открытые проекты</span>
+    </span>
+    <span class="arrow">›</span>
+  </a>
+
+  <a href="#" class="nav-item">
+    <span class="nav-icon icon-consult">💬</span>
+    <span class="nav-label">
+      <span class="title">Консультации</span>
+      <span class="sub">Индивидуальная работа с руководителем</span>
+    </span>
+    <span class="arrow">›</span>
+  </a>
+
+  <a href="#" class="nav-item">
+    <span class="nav-icon icon-spec">⚡</span>
+    <span class="nav-label">
+      <span class="title">Управленческий спецназ</span>
+      <span class="sub">Интенсив для команд</span>
+    </span>
+    <span class="arrow">›</span>
+  </a>
+
+  <div class="footer">@uslugi_umc_bot</div>
 
   <script>
     (function() {

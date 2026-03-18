@@ -32,6 +32,24 @@
     .welcome { font-size: 14px; line-height: 1.5; }
     .welcome .tagline { color: #444; }
     .welcome #greeting { color: #222; }
+    .accordion-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; user-select: none;
+      font-size: 13px; color: #888;
+      margin-bottom: 0;
+    }
+    .accordion-toggle:active { opacity: 0.7; }
+    .accordion-arrow {
+      font-size: 12px; color: #bbb;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .accordion-arrow.open { transform: rotate(180deg); }
+    .accordion-body {
+      display: none;
+      margin-top: 10px;
+    }
+    .accordion-body.open { display: block; }
     .nav-title {
       font-size: 12px;
       color: #e8a030;
@@ -90,7 +108,16 @@
   </div>
 
   <div class="card welcome">
-    <span id="tagline" class="tagline">Мы выясняем, почему у 5% руководителей получается на порядок лучше, чем у 95%, систематизируем этот опыт и делаем доступным для других.<br><br>А ещё — изучаем, как ИИ меняет структуру бизнеса и управления, и помогаем открывать новые возможности.</span><span id="greeting" style="display:block; margin-top:10px;">Приветствуем на борту! Чем можем быть полезны 👇</span>
+    <span id="greeting">Приветствуем на борту! 👇 вот чем можем быть полезны</span>
+    <div style="margin-top:10px;">
+      <div class="accordion-toggle" onclick="toggleAbout(this)">
+        <span>Чем занимаемся</span>
+        <span class="accordion-arrow">▾</span>
+      </div>
+      <div class="accordion-body tagline">
+        Мы выясняем, почему у 5% руководителей получается на порядок лучше, чем у 95%, систематизируем этот опыт и делаем доступным для других.<br><br>А ещё — изучаем, как ИИ меняет структуру бизнеса и управления, и помогаем открывать новые возможности.
+      </div>
+    </div>
   </div>
 
   <div class="nav-title">Услуги центра</div>
@@ -140,10 +167,17 @@
         var u = tg.initDataUnsafe.user;
         var name = u.first_name || '';
         if (u.last_name) name += ' ' + u.last_name;
-        if (name.trim()) document.getElementById('greeting').textContent = 'Приветствуем на борту, ' + name.trim() + '! Чем можем быть полезны 👇';
+        if (name.trim()) document.getElementById('greeting').textContent = 'Приветствуем на борту, ' + name.trim() + '! 👇 вот чем можем быть полезны';
       }
       if (tg) tg.ready();
     })();
+
+    function toggleAbout(el) {
+      var body = el.nextElementSibling;
+      var arrow = el.querySelector('.accordion-arrow');
+      body.classList.toggle('open');
+      arrow.classList.toggle('open');
+    }
   </script>
 </body>
 </html>

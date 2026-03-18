@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Управленческий спецназ</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      background: none; border: none; cursor: pointer;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 20px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-badge {
+      display: inline-block;
+      background: #606060;
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .header p { font-size: 13px; color: #888; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700;
+      color: #606060;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-size: 14px; color: #333; line-height: 1.6;
+    }
+    .card-text p { margin-bottom: 10px; }
+    .card-text p:last-child { margin-bottom: 0; }
+    .thesis-list { display: flex; flex-direction: column; gap: 10px; }
+    .thesis-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #333; line-height: 1.5;
+    }
+    .thesis-check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #f0f0f0; color: #606060;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .phase-list { display: flex; flex-direction: column; gap: 8px; }
+    .phase-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 14px;
+      background: #f5f5f5;
+      border-radius: 10px;
+    }
+    .phase-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #606060; color: #fff;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .phase-texts { flex: 1; }
+    .phase-title { font-size: 14px; font-weight: 600; color: #222; display: block; margin-bottom: 2px; }
+    .phase-sub { font-size: 12px; color: #666; line-height: 1.4; display: block; }
+    .result-card {
+      background: #f5f5f5;
+      border: 1.5px solid #606060;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 11px; font-weight: 700;
+      color: #606060; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .result-text {
+      font-size: 14px; color: #333; line-height: 1.55;
+    }
+    .result-text p { margin-bottom: 8px; }
+    .result-text p:last-child { margin-bottom: 0; }
+    .duration-card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .duration-icon { font-size: 24px; flex-shrink: 0; }
+    .duration-text { font-size: 14px; color: #444; }
+    .btn-link {
+      display: block;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px 16px; font-size: 16px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin: 8px 12px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="window.location.href='index.html'">‹ Назад</button>
+
+  <div class="header">
+    <div class="header-badge">Интенсив для команд</div>
+    <h1>Управленческий спецназ</h1>
+    <p>Жёсткая прокачка за короткое время</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">О чём это</div>
+    <div class="card-text">
+      <p>«Управленческий спецназ» — интенсивная программа для команд, которые хотят быстро и основательно поднять уровень управления. Не в теории, а в реальной практике.</p>
+      <p>За несколько дней команда проходит через плотную работу: разбирает управленческие ситуации, вырабатывает общие принципы, учится работать иначе. Результат виден сразу — в том, как люди думают, договариваются и действуют.</p>
+      <p>Формат подходит для управленческих команд, которые хотят резкого роста — без затяжного обучения и размытых результатов.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Когда это нужно</div>
+    <div class="thesis-list">
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Команда работает разобщённо: каждый сам по себе, единого подхода нет</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Управленческий уровень команды нужно поднять быстро и всерьёз</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Предстоят серьёзные изменения — и команда должна быть к ним готова</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Обычное обучение не даёт результата: слушают, но не меняются</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Что происходит на интенсиве</div>
+    <div class="phase-list">
+      <div class="phase-item">
+        <div class="phase-num">1</div>
+        <div class="phase-texts">
+          <span class="phase-title">Диагностика реальной ситуации</span>
+          <span class="phase-sub">Команда видит, как она управляет на самом деле — без прикрас</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">2</div>
+        <div class="phase-texts">
+          <span class="phase-title">Работа с управленческими инструментами</span>
+          <span class="phase-sub">Не лекции, а разборы реальных кейсов и живая практика</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">3</div>
+        <div class="phase-texts">
+          <span class="phase-title">Выработка общих принципов</span>
+          <span class="phase-sub">Команда договаривается, как будет работать дальше — конкретно и на своём языке</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">4</div>
+        <div class="phase-texts">
+          <span class="phase-title">Закрепление в действии</span>
+          <span class="phase-sub">Переход от понимания к устойчивым привычкам управления</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">На выходе вы получаете</div>
+    <div class="result-text">
+      <p>Команду, которая говорит на одном управленческом языке и действует согласованно.</p>
+      <p>Конкретные договорённости — что меняем, как работаем, на что опираемся.</p>
+      <p>Заряд и импульс: после интенсива люди хотят работать иначе и знают как.</p>
+    </div>
+  </div>
+
+  <div class="duration-card">
+    <div class="duration-icon">🗓</div>
+    <div class="duration-text"><strong>Интенсив, 2–3 дня.</strong> Формат и программа согласуются под конкретную команду.</div>
+  </div>
+
+  <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться / задать вопрос</a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

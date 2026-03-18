@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Командное зеркало</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      background: none; border: none; cursor: pointer;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 20px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-badge {
+      display: inline-block;
+      background: #e8a030;
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .header p { font-size: 13px; color: #888; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700;
+      color: #e8a030;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-size: 14px; color: #333; line-height: 1.6;
+    }
+    .card-text p { margin-bottom: 10px; }
+    .card-text p:last-child { margin-bottom: 0; }
+    .thesis-list { display: flex; flex-direction: column; gap: 10px; }
+    .thesis-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #333; line-height: 1.5;
+    }
+    .thesis-check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #e8f5e9; color: #43a047;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .result-card {
+      background: #fff8f0;
+      border: 1.5px solid #e8a030;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 11px; font-weight: 700;
+      color: #e8a030; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .result-text {
+      font-size: 14px; color: #333; line-height: 1.55;
+    }
+    .result-text p { margin-bottom: 8px; }
+    .result-text p:last-child { margin-bottom: 0; }
+    .duration-card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .duration-icon { font-size: 24px; flex-shrink: 0; }
+    .duration-text { font-size: 14px; color: #444; }
+    .btn-link {
+      display: block;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px 16px; font-size: 16px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin: 8px 12px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="window.location.href='komanda.html'">‹ Работа с командой</button>
+
+  <div class="header">
+    <div class="header-badge">Диагностическая сессия</div>
+    <h1>Командное зеркало: что происходит в команде на самом деле</h1>
+    <p>Сессия самодиагностики: команда всё увидит и поймёт сама</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">О чём это</div>
+    <div class="card-text">
+      <p>Есть то, как вы видите себя, команду и ваши отношения. Есть то, как команда это видит. А есть — как на самом деле.</p>
+      <p>У одних в команде сильные, живые отношения — но они этого не замечают. Не зная, могут испортить их в очередных изменениях. У других — отношения сломаны, но они не видят этого. Решения принимаются «как будто всё в порядке», а ситуация — всё хуже.</p>
+      <p>«Командное зеркало» — это способ увидеть, как на самом деле всё устроено. Команда смотрит на себя как бы в зеркало, и видит то, что обычно скрыто. Не в абстракции, а здесь и сейчас. Руководитель получает чёткую картинку: как устроены отношения, какова его реальная роль и что влияет на управляемость.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Появляется ясность</div>
+    <div class="thesis-list">
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Где затыки с эффективностью, управлением и коммуникацией</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Где сильные стороны, на которые стоит опираться</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Где ограничения, которые важно учитывать</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Что с этим делать дальше</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Чем отличается от привычных форматов</div>
+    <div class="thesis-list">
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div><strong>Типируем отношения, а не людей.</strong> Мы смотрим на то, как команда взаимодействует: кто на кого влияет, как распределяется ответственность, как принимаются решения</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div><strong>Не тест и не интервью.</strong> Команда видит себя в реальных бизнес-кейсах и живых реакциях в моменте — без искажений</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div><strong>Методология с 25-летней практикой.</strong> Анализ опыта 1000+ управленцев, десятки кейсов, тренингов и мастер-классов</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div><strong>Ведущий ставит зеркало, а не даёт советов.</strong> Команда сама это видит. И уже не может не видеть</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">На выходе вы получаете</div>
+    <div class="result-text">
+      <p>Общее видение для всей команды — как устроены ваши отношения, чем они поддерживаются и на что влияют.</p>
+      <p>Общий язык и оптику, чтобы обсуждать и перестраивать взаимодействие — без перегибов и чужих шаблонов.</p>
+      <p>Основание для осознанных управленческих решений: что важно беречь, что менять и как двигаться дальше.</p>
+    </div>
+  </div>
+
+  <div class="duration-card">
+    <div class="duration-icon">🗓</div>
+    <div class="duration-text"><strong>Командная сессия, 3–4 часа.</strong> Руководитель участвует — это обязательное условие.</div>
+  </div>
+
+  <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться / задать вопрос</a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

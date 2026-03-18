@@ -50,9 +50,7 @@
       font-size: 14px; color: #333; line-height: 1.55; margin-bottom: 10px;
     }
     .intro-card p:last-child { margin-bottom: 0; }
-    .intro-steps {
-      display: flex; flex-direction: column; gap: 6px;
-    }
+    .intro-steps { display: flex; flex-direction: column; gap: 6px; }
     .intro-step {
       display: flex; align-items: flex-start; gap: 8px;
       font-size: 13px; color: #444; line-height: 1.45;
@@ -65,13 +63,7 @@
       flex-shrink: 0; margin-top: 1px;
     }
 
-    .section-title {
-      font-size: 12px; font-weight: 700;
-      color: #e8a030;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin: 16px 16px 8px;
-    }
+    /* Accordion — nav-item style */
     .accordion {
       background: #fff;
       border-radius: 12px;
@@ -80,21 +72,43 @@
       overflow: hidden;
     }
     .accordion-header {
-      display: flex; align-items: flex-end;
+      display: flex; align-items: center;
       padding: 14px 16px;
       cursor: pointer;
-      gap: 10px;
+      gap: 12px;
     }
     .accordion-header:active { opacity: 0.8; }
-    .accordion-texts { flex: 1; }
-    .accordion-title { font-size: 15px; font-weight: 600; display: block; margin-bottom: 2px; }
-    .accordion-sub { font-size: 12px; color: #e8a030; font-weight: 600; display: block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
-    .accordion-short { font-size: 13px; color: #444; line-height: 1.4; display: block; }
-    .accordion-duration { font-size: 12px; color: #999; display: block; margin-top: 4px; }
+    .acc-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0; color: #fff;
+      align-self: flex-start; margin-top: 2px;
+    }
+    .acc-icon-0 { background: #e86040; }
+    .acc-icon-1 { background: #4090e8; }
+    .acc-icon-2 { background: #606060; }
+    .accordion-texts { flex: 1; min-width: 0; }
+    .accordion-sub {
+      font-size: 11px; color: #e8a030; font-weight: 700;
+      display: block; margin-bottom: 2px;
+      text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .accordion-title {
+      font-size: 15px; font-weight: 600; display: block; margin-bottom: 3px;
+    }
+    .accordion-short {
+      font-size: 13px; color: #555; line-height: 1.4; display: block;
+    }
+    .accordion-duration {
+      font-size: 12px; color: #999; display: block; margin-top: 4px;
+    }
+    .accordion-footer {
+      display: flex; align-items: center; justify-content: flex-end;
+      padding: 0 16px 10px;
+    }
     .accordion-arrow {
-      font-size: 12px; color: #aaa;
+      font-size: 11px; color: #bbb;
       transition: transform 0.25s;
-      margin-top: 4px; flex-shrink: 0;
     }
     .accordion.open .accordion-arrow { transform: rotate(180deg); }
     .accordion-body {
@@ -125,6 +139,13 @@
       cursor: pointer; margin-bottom: 10px;
     }
     .btn-secondary:active { opacity: 0.8; }
+    .section-title {
+      font-size: 12px; font-weight: 700;
+      color: #e8a030;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 16px 16px 8px;
+    }
     .contact-card {
       background: #fff;
       border-radius: 12px;
@@ -178,19 +199,18 @@
     <p style="margin-top: 10px; font-size: 13px; color: #666;">На каждом шаге возрастает продуктивность, больше удовольствия в работе и ясности — какова роль и вклад каждого.</p>
   </div>
 
-  <div class="section-title">Ступени</div>
-
   <!-- Ступень 0 -->
   <div class="accordion" onclick="toggle(this)">
     <div class="accordion-header">
+      <div class="acc-icon acc-icon-0">🎯</div>
       <div class="accordion-texts">
         <span class="accordion-sub">0. Базовый тренинг</span>
         <span class="accordion-title">Управленческая власть и влияние</span>
         <span class="accordion-short">Как сделать систему управляемой, перестать компенсировать её дефекты и высвободить время для важного.</span>
         <span class="accordion-duration">2 дня / 4 занятия — очно или онлайн</span>
       </div>
-      <span class="accordion-arrow">▼</span>
     </div>
+    <div class="accordion-footer"><span class="accordion-arrow">▼</span></div>
     <div class="accordion-body">
       <div class="accordion-body-text">
         Система становится для руководителя не обузой, а рабочим инструментом. Это позволяет выстроить здоровые рабочие отношения, освоить инструменты «управленческая власть и влияние», наладить управляемость, перестать быть компенсатором дефектов системы.<br><br>
@@ -205,14 +225,15 @@
   <!-- Ступень 1 -->
   <div class="accordion" onclick="toggle(this)">
     <div class="accordion-header">
+      <div class="acc-icon acc-icon-1">⚙️</div>
       <div class="accordion-texts">
         <span class="accordion-sub">1. Первая ступень</span>
         <span class="accordion-title">Автономная система: работает хорошо и сама</span>
         <span class="accordion-short">Как сделать систему «самоходной»: которая работает без подталкиваний, берёт на себя текущие решения и разгружает руководителя, а он переходит на стратегический трек.</span>
         <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
       </div>
-      <span class="accordion-arrow">▼</span>
     </div>
+    <div class="accordion-footer"><span class="accordion-arrow">▼</span></div>
     <div class="accordion-body">
       <div class="accordion-body-text">
         Система становится автономным ресурсом: работает на собственной энергии без подталкиваний, с самоконтролем вместо тотального контроля. Самостоятельно действует, разгружает руководителя, умеет сверяться — ведёт ли текущая фокусировка усилий к требуемому результату.<br><br>
@@ -227,14 +248,15 @@
   <!-- Ступень 2 -->
   <div class="accordion" onclick="toggle(this)">
     <div class="accordion-header">
+      <div class="acc-icon acc-icon-2">🛡️</div>
       <div class="accordion-texts">
         <span class="accordion-sub">2. Вторая ступень</span>
         <span class="accordion-title">Устойчивая система: учитывает реальность, проявляет волю</span>
         <span class="accordion-short">Как наладить работу, когда система сама распознаёт риски, преодолевает кризисы и всё равно движется к результату.</span>
         <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
       </div>
-      <span class="accordion-arrow">▼</span>
     </div>
+    <div class="accordion-footer"><span class="accordion-arrow">▼</span></div>
     <div class="accordion-body">
       <div class="accordion-body-text">
         Система становится самостоятельно играющим партнёром: распознаёт помехи и тенденции, согласовывает принципы принятия решений, выделяет и использует сильные стороны людей. Использует с пользой кризисы и конфликты — и становится от этого лучше.<br><br>

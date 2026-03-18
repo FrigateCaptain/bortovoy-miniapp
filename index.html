@@ -30,8 +30,8 @@
     .profile-name { font-weight: 600; font-size: 18px; margin: 0; }
     .profile-username { color: #666; font-size: 14px; margin-top: 4px; }
     .welcome { font-size: 14px; line-height: 1.5; }
-    .welcome strong { display: block; margin-bottom: 6px; font-size: 15px; }
     .welcome .tagline { color: #444; }
+    .welcome #greeting { color: #222; font-weight: 600; }
     .nav-title {
       font-size: 12px;
       color: #e8a030;
@@ -90,8 +90,7 @@
   </div>
 
   <div class="card welcome">
-    <strong id="greeting">Привет! 👋</strong>
-    <span id="tagline" class="tagline">Мы выясняем, почему у 5% руководителей получается на порядок лучше, чем у 95%, систематизируем этот опыт и делаем доступным для других.<br><br>А ещё — изучаем, как ИИ меняет структуру бизнеса и управления, и помогаем открывать новые возможности.</span>
+    <span id="tagline" class="tagline">Мы выясняем, почему у 5% руководителей получается на порядок лучше, чем у 95%, систематизируем этот опыт и делаем доступным для других.<br><br>А ещё — изучаем, как ИИ меняет структуру бизнеса и управления, и помогаем открывать новые возможности.<br><br><span id="greeting">Приветствуем на борту! Чем можем быть полезны 👇</span></span>
   </div>
 
   <div class="nav-title">Услуги центра</div>
@@ -141,7 +140,7 @@
         var u = tg.initDataUnsafe.user;
         var name = u.first_name || '';
         if (u.last_name) name += ' ' + u.last_name;
-        if (name.trim()) document.getElementById('greeting').textContent = 'Привет, ' + name.trim() + '! 👋';
+        if (name.trim()) document.getElementById('greeting').textContent = 'Приветствуем на борту, ' + name.trim() + '! Чем можем быть полезны 👇';
       }
       if (tg) tg.ready();
     })();

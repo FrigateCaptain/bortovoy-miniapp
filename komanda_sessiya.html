@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Стратегическая / командная сессия</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      background: none; border: none; cursor: pointer;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 20px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-badge {
+      display: inline-block;
+      background: #fcd060;
+      color: #7a5000;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .header p { font-size: 13px; color: #888; }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-title {
+      font-size: 12px; font-weight: 700;
+      color: #e8a030;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-size: 14px; color: #333; line-height: 1.6;
+    }
+    .problem-list { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+    .problem-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13px; color: #555; line-height: 1.45;
+    }
+    .problem-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #ccc; flex-shrink: 0; margin-top: 6px;
+    }
+    .cause-block {
+      background: #f0f7ff;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+    }
+    .cause-block:last-child { margin-bottom: 0; }
+    .cause-title { font-size: 13px; font-weight: 700; color: #2a4a7a; margin-bottom: 3px; }
+    .cause-text { font-size: 13px; color: #444; line-height: 1.45; }
+    .thesis-list { display: flex; flex-direction: column; gap: 10px; }
+    .thesis-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #333; line-height: 1.5;
+    }
+    .thesis-check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #e8f5e9; color: #43a047;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .result-card {
+      background: #fff8f0;
+      border: 1.5px solid #e8a030;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+    }
+    .result-label {
+      font-size: 11px; font-weight: 700;
+      color: #e8a030; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .result-text { font-size: 14px; color: #333; line-height: 1.55; }
+    .duration-card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .duration-icon { font-size: 24px; flex-shrink: 0; }
+    .duration-text { font-size: 14px; color: #444; }
+    .btn-link {
+      display: block;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 14px 16px; font-size: 16px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin: 8px 12px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="window.location.href='komanda.html'">‹ Работа с командой</button>
+
+  <div class="header">
+    <div class="header-badge">Командная сессия</div>
+    <h1>Стратегическая / командная сессия</h1>
+    <p>Делать ясным будущее, слышать друг друга в настоящем</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Когда это нужно</div>
+    <div class="card-text">В команде появляются знакомые признаки:</div>
+    <div class="problem-list">
+      <div class="problem-item"><div class="problem-dot"></div><div>Не слышат друг друга</div></div>
+      <div class="problem-item"><div class="problem-dot"></div><div>Споры и обсуждения ни к чему не приводят</div></div>
+      <div class="problem-item"><div class="problem-dot"></div><div>Ищут, кто виноват, а не решение</div></div>
+      <div class="problem-item"><div class="problem-dot"></div><div>Нет работы на общий результат</div></div>
+      <div class="problem-item"><div class="problem-dot"></div><div>Нет согласия как идти к результату</div></div>
+      <div class="problem-item"><div class="problem-dot"></div><div>При выработке стратегии — такая же рассогласованность: бесконечные разговоры, а результат — формальный</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Почему не получается решить самим</div>
+    <div class="cause-block">
+      <div class="cause-title">Суть проблемы часто не видна</div>
+      <div class="cause-text">Тех, кто видит причины, — просто не слышат</div>
+    </div>
+    <div class="cause-block">
+      <div class="cause-title">Неписаные правила</div>
+      <div class="cause-text">Которые составляют реальную корп. культуру и тормозят работу</div>
+    </div>
+    <div class="cause-block">
+      <div class="cause-title">Асимметрия</div>
+      <div class="cause-text">Сверху могут дать или отменить задачу в любые сроки. А тот, кто получает её, не имеет легальных способов повлиять</div>
+    </div>
+    <div class="cause-block">
+      <div class="cause-title">Нерешённый конфликт</div>
+      <div class="cause-text">Все за дело, но прояснить позиции в разногласиях не могут. Энергия коллектива идёт не в дело, а в конфликт, который не прекращается</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Что происходит на сессии</div>
+    <div class="thesis-list">
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Команда <strong>сама видит</strong>, как она воссоздаёт ситуацию — и находит корневые причины трудностей и проблем</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Прорабатываются глубокие причины, связанные с доверием, правом каждого занимать своё место в команде и иметь легальную, пропорциональную ответственность и возможность влиять</div>
+      </div>
+      <div class="thesis-item">
+        <div class="thesis-check">✓</div>
+        <div>Тщательная подготовка до сессии — чтобы работать с реальными вопросами, а не абстракциями</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">В итоге</div>
+    <div class="result-text">
+      Команда находит и прорабатывает корневые причины трудностей и проблем. Появляется общее видение и согласованность — не декларативная, а настоящая. Результаты сессии не улетучиваются через пару недель.
+    </div>
+  </div>
+
+  <div class="duration-card">
+    <div class="duration-icon">🗓</div>
+    <div class="duration-text"><strong>16 часов</strong> — проведение + тщательная подготовка</div>
+  </div>
+
+  <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться / задать вопрос</a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

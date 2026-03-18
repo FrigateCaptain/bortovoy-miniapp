@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Обучение</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      padding-bottom: 24px;
+    }
+    .header {
+      background: #fff;
+      text-align: center;
+      padding: 24px 16px 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .header-icon {
+      width: 64px; height: 64px; border-radius: 14px;
+      background: #e86040;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; margin: 0 auto 12px;
+    }
+    .header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .header p { font-size: 14px; color: #666; }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px 0;
+      color: #2196F3; font-size: 15px;
+      text-decoration: none; cursor: pointer;
+      background: none; border: none;
+    }
+    .back-btn:active { opacity: 0.7; }
+    .section-title {
+      font-size: 12px; font-weight: 700;
+      color: #e8a030;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 16px 16px 8px;
+    }
+    .accordion {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .accordion-header {
+      display: flex; align-items: flex-start;
+      padding: 14px 16px;
+      cursor: pointer;
+      gap: 10px;
+    }
+    .accordion-header:active { opacity: 0.8; }
+    .accordion-texts { flex: 1; }
+    .accordion-title { font-size: 15px; font-weight: 600; display: block; margin-bottom: 2px; }
+    .accordion-sub { font-size: 13px; color: #555; font-style: italic; display: block; margin-bottom: 4px; }
+    .accordion-short { font-size: 13px; color: #444; line-height: 1.4; display: block; }
+    .accordion-duration { font-size: 12px; color: #999; display: block; margin-top: 4px; }
+    .accordion-arrow {
+      font-size: 12px; color: #aaa;
+      transition: transform 0.25s;
+      margin-top: 4px; flex-shrink: 0;
+    }
+    .accordion.open .accordion-arrow { transform: rotate(180deg); }
+    .accordion-body {
+      display: none;
+      padding: 0 16px 16px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .accordion.open .accordion-body { display: block; }
+    .accordion-body-text {
+      font-size: 14px; color: #333; line-height: 1.55;
+      margin-bottom: 12px; padding-top: 12px;
+    }
+    .btn-link {
+      display: block; width: 100%;
+      background: #2196F3; color: #fff;
+      border: none; border-radius: 10px;
+      padding: 12px; font-size: 15px; font-weight: 600;
+      text-align: center; text-decoration: none;
+      cursor: pointer; margin-bottom: 8px;
+    }
+    .btn-link:active { opacity: 0.85; }
+    .btn-secondary {
+      display: block; width: 100%;
+      background: #f0f0f0; color: #2196F3;
+      border: none; border-radius: 10px;
+      padding: 11px; font-size: 14px; font-weight: 500;
+      text-align: center; text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-secondary:active { opacity: 0.8; }
+    .contact-card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: inherit;
+    }
+    .contact-card:active { opacity: 0.8; }
+    .contact-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: #2196F3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0; color: #fff;
+    }
+    .contact-label { flex: 1; }
+    .contact-label .ct { font-size: 15px; font-weight: 500; display: block; }
+    .contact-label .cs { font-size: 12px; color: #888; display: block; margin-top: 2px; }
+    .contact-arrow { color: #ccc; font-size: 18px; }
+    .footer { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" onclick="history.back()">‹ Назад</button>
+
+  <div class="header">
+    <div class="header-icon">📚</div>
+    <h1>Обучение</h1>
+    <p>Как перестать контролировать и начать управлять</p>
+  </div>
+
+  <div class="section-title">Программа</div>
+
+  <!-- Ступень 0 -->
+  <div class="accordion" onclick="toggle(this)">
+    <div class="accordion-header">
+      <div class="accordion-texts">
+        <span class="accordion-title">0. Базовый тренинг</span>
+        <span class="accordion-sub">«Управленческая власть, влияние и коммуникация»</span>
+        <span class="accordion-short">Как сделать систему управляемой, перестать компенсировать её дефекты и высвободить время для важного.</span>
+        <span class="accordion-duration">2 дня / 4 занятия — очно или онлайн</span>
+      </div>
+      <span class="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-text">
+        Система становится для руководителя не обузой, а рабочим инструментом. Это позволяет выстроить здоровые рабочие отношения, освоить инструменты «управленческая власть и влияние», наладить управляемость, перестать быть компенсатором дефектов системы.<br><br>
+        В итоге: сделать компанию или подразделение управляемым, высвободить ресурс времени — свой и подчинённых — и использовать его с большей эффективностью.<br><br>
+        <em>Продолжительность — 2 дня, либо 4 занятия (очно или онлайн)</em>
+      </div>
+      <a href="programma_bazovyy.html" class="btn-secondary">Подробная программа →</a>
+      <a href="https://uc.zhandarov.com/bazovyi" class="btn-link">Записаться</a>
+    </div>
+  </div>
+
+  <!-- Ступень 1 -->
+  <div class="accordion" onclick="toggle(this)">
+    <div class="accordion-header">
+      <div class="accordion-texts">
+        <span class="accordion-title">1. Первая ступень</span>
+        <span class="accordion-sub">«Автономная система: работает хорошо и сама»</span>
+        <span class="accordion-short">Как сделать систему «самоходной»: которая работает без подталкиваний, берёт на себя текущие решения и разгружает руководителя, а он переходит на стратегический трек.</span>
+        <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
+      </div>
+      <span class="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-text">
+        Система становится автономным ресурсом: работает на собственной энергии без подталкиваний, с самоконтролем вместо тотального контроля. Самостоятельно действует, разгружает руководителя, умеет сверяться — ведёт ли текущая фокусировка усилий к требуемому результату.<br><br>
+        В итоге: у руководителя — время на стратегический трек, у системы — ресурс его реализовывать.<br><br>
+        <em>Продолжительность — 3 дня, либо 6 занятий (очно или онлайн)</em>
+      </div>
+      <a href="programma_stupen1.html" class="btn-secondary">Подробная программа →</a>
+      <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться</a>
+    </div>
+  </div>
+
+  <!-- Ступень 2 -->
+  <div class="accordion" onclick="toggle(this)">
+    <div class="accordion-header">
+      <div class="accordion-texts">
+        <span class="accordion-title">2. Вторая ступень</span>
+        <span class="accordion-sub">«Устойчивая система: учитывает реальность, проявляет волю, решает проблемы»</span>
+        <span class="accordion-short">Как наладить работу, когда система сама распознаёт риски, преодолевает кризисы и всё равно движется к результату.</span>
+        <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
+      </div>
+      <span class="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-text">
+        Система становится самостоятельно играющим партнёром: распознаёт помехи и тенденции, согласовывает принципы принятия решений, выделяет и использует сильные стороны людей. Использует с пользой кризисы и конфликты — и становится от этого лучше.<br><br>
+        В итоге: система целенаправленно движется к результату, проявляя волю и настойчивость.<br><br>
+        <em>Продолжительность — 3 дня, либо 6 занятий (очно или онлайн)</em>
+      </div>
+      <a href="programma_stupen2.html" class="btn-secondary">Подробная программа →</a>
+      <a href="https://t.me/podderzhka_cluch" class="btn-link">Записаться</a>
+    </div>
+  </div>
+
+  <div class="section-title">Вопросы и запись</div>
+
+  <a href="https://t.me/podderzhka_cluch" class="contact-card">
+    <div class="contact-icon">💬</div>
+    <div class="contact-label">
+      <span class="ct">@podderzhka_cluch</span>
+      <span class="cs">Задать вопрос, записаться</span>
+    </div>
+    <span class="contact-arrow">›</span>
+  </a>
+
+  <a href="https://t.me/vitaly_zhandarov" class="contact-card">
+    <div class="contact-icon" style="background:#555;">👤</div>
+    <div class="contact-label">
+      <span class="ct">@vitaly_zhandarov</span>
+      <span class="cs">Написать напрямую</span>
+    </div>
+    <span class="contact-arrow">›</span>
+  </a>
+
+  <div class="footer">@uslugi_umc_bot</div>
+
+  <script>
+    function toggle(el) {
+      el.classList.toggle('open');
+    }
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+  </script>
+</body>
+</html>

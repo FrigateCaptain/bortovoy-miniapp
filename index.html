@@ -108,7 +108,7 @@
   </div>
 
   <div class="card welcome">
-    <span id="greeting">Приветствуем на борту! 👇 вот чем можем быть полезны</span>
+    <span id="greeting">Приветствуем на борту!<br>👇 вот чем можем быть полезны</span>
     <div style="margin-top:10px;">
       <div class="accordion-toggle" onclick="toggleAbout(this)">
         <span>Чем занимаемся</span>
@@ -167,7 +167,7 @@
         var u = tg.initDataUnsafe.user;
         var name = u.first_name || '';
         if (u.last_name) name += ' ' + u.last_name;
-        if (name.trim()) document.getElementById('greeting').textContent = 'Приветствуем на борту, ' + name.trim() + '! 👇 вот чем можем быть полезны';
+        if (name.trim()) document.getElementById('greeting').innerHTML = 'Приветствуем на борту, ' + name.trim() + '!<br>👇 вот чем можем быть полезны';
       }
       if (tg) tg.ready();
     })();

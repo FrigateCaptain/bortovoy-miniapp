@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Обучение</title>
+  <title>Управленческий трек</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,6 +37,34 @@
       background: none; border: none;
     }
     .back-btn:active { opacity: 0.7; }
+
+    /* Intro card */
+    .intro-card {
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 12px 8px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .intro-card p {
+      font-size: 14px; color: #333; line-height: 1.55; margin-bottom: 10px;
+    }
+    .intro-card p:last-child { margin-bottom: 0; }
+    .intro-steps {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .intro-step {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13px; color: #444; line-height: 1.45;
+    }
+    .intro-step-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #e86040; color: #fff;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
     .section-title {
       font-size: 12px; font-weight: 700;
       color: #e8a030;
@@ -60,7 +88,7 @@
     .accordion-header:active { opacity: 0.8; }
     .accordion-texts { flex: 1; }
     .accordion-title { font-size: 15px; font-weight: 600; display: block; margin-bottom: 2px; }
-    .accordion-sub { font-size: 13px; color: #555; font-style: italic; display: block; margin-bottom: 4px; }
+    .accordion-sub { font-size: 12px; color: #e8a030; font-weight: 600; display: block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
     .accordion-short { font-size: 13px; color: #444; line-height: 1.4; display: block; }
     .accordion-duration { font-size: 12px; color: #999; display: block; margin-top: 4px; }
     .accordion-arrow {
@@ -126,18 +154,37 @@
 
   <div class="header">
     <div class="header-icon">📚</div>
-    <h1>Обучение</h1>
+    <h1>Управленческий трек</h1>
     <p>Как перестать контролировать и начать управлять</p>
   </div>
 
-  <div class="section-title">Программа</div>
+  <div class="intro-card">
+    <p>Главный продукт работы руководителя — чтобы подотчётная система последовательно становилась:</p>
+    <div class="intro-steps">
+      <div class="intro-step">
+        <div class="intro-step-num">1</div>
+        <div><strong>Управляемой</strong> — не сопротивляется, откликается на воздействия; можно поручить и быть уверенным, не компенсируя дефекты микроменеджментом</div>
+      </div>
+      <div class="intro-step">
+        <div class="intro-step-num">2</div>
+        <div><strong>Автономной</strong> — в стабильных условиях работает хорошо и сама, можно высвободить ресурс на стратегические вопросы без рисков</div>
+      </div>
+      <div class="intro-step">
+        <div class="intro-step-num">3</div>
+        <div><strong>Устойчивой</strong> — распознаёт и предупреждает большую часть рисков самостоятельно и заранее</div>
+      </div>
+    </div>
+    <p style="margin-top: 10px; font-size: 13px; color: #666;">На каждом шаге возрастает продуктивность, больше удовольствия в работе и ясности — какова роль и вклад каждого.</p>
+  </div>
+
+  <div class="section-title">Ступени</div>
 
   <!-- Ступень 0 -->
   <div class="accordion" onclick="toggle(this)">
     <div class="accordion-header">
       <div class="accordion-texts">
-        <span class="accordion-title">0. Базовый тренинг</span>
-        <span class="accordion-sub">«Управленческая власть, влияние и коммуникация»</span>
+        <span class="accordion-sub">0. Базовый тренинг</span>
+        <span class="accordion-title">Управленческая власть и влияние</span>
         <span class="accordion-short">Как сделать систему управляемой, перестать компенсировать её дефекты и высвободить время для важного.</span>
         <span class="accordion-duration">2 дня / 4 занятия — очно или онлайн</span>
       </div>
@@ -146,7 +193,7 @@
     <div class="accordion-body">
       <div class="accordion-body-text">
         Система становится для руководителя не обузой, а рабочим инструментом. Это позволяет выстроить здоровые рабочие отношения, освоить инструменты «управленческая власть и влияние», наладить управляемость, перестать быть компенсатором дефектов системы.<br><br>
-        В итоге: сделать компанию или подразделение управляемым, высвободить ресурс времени — свой и подчинённых — и использовать его с большей эффективностью.<br><br>
+        <strong>В итоге:</strong> сделать компанию или подразделение управляемым, высвободить ресурс времени — свой и подчинённых.<br><br>
         <em>Продолжительность — 2 дня, либо 4 занятия (очно или онлайн)</em>
       </div>
       <a href="programma_bazovyy.html" class="btn-secondary">Подробная программа →</a>
@@ -158,8 +205,8 @@
   <div class="accordion" onclick="toggle(this)">
     <div class="accordion-header">
       <div class="accordion-texts">
-        <span class="accordion-title">1. Первая ступень</span>
-        <span class="accordion-sub">«Автономная система: работает хорошо и сама»</span>
+        <span class="accordion-sub">1. Первая ступень</span>
+        <span class="accordion-title">Автономная система: работает хорошо и сама</span>
         <span class="accordion-short">Как сделать систему «самоходной»: которая работает без подталкиваний, берёт на себя текущие решения и разгружает руководителя, а он переходит на стратегический трек.</span>
         <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
       </div>
@@ -168,7 +215,7 @@
     <div class="accordion-body">
       <div class="accordion-body-text">
         Система становится автономным ресурсом: работает на собственной энергии без подталкиваний, с самоконтролем вместо тотального контроля. Самостоятельно действует, разгружает руководителя, умеет сверяться — ведёт ли текущая фокусировка усилий к требуемому результату.<br><br>
-        В итоге: у руководителя — время на стратегический трек, у системы — ресурс его реализовывать.<br><br>
+        <strong>В итоге:</strong> у руководителя — время на стратегический трек, у системы — ресурс его реализовывать.<br><br>
         <em>Продолжительность — 3 дня, либо 6 занятий (очно или онлайн)</em>
       </div>
       <a href="programma_stupen1.html" class="btn-secondary">Подробная программа →</a>
@@ -180,8 +227,8 @@
   <div class="accordion" onclick="toggle(this)">
     <div class="accordion-header">
       <div class="accordion-texts">
-        <span class="accordion-title">2. Вторая ступень</span>
-        <span class="accordion-sub">«Устойчивая система: учитывает реальность, проявляет волю, решает проблемы»</span>
+        <span class="accordion-sub">2. Вторая ступень</span>
+        <span class="accordion-title">Устойчивая система: учитывает реальность, проявляет волю</span>
         <span class="accordion-short">Как наладить работу, когда система сама распознаёт риски, преодолевает кризисы и всё равно движется к результату.</span>
         <span class="accordion-duration">3 дня / 6 занятий — очно или онлайн</span>
       </div>
@@ -190,7 +237,7 @@
     <div class="accordion-body">
       <div class="accordion-body-text">
         Система становится самостоятельно играющим партнёром: распознаёт помехи и тенденции, согласовывает принципы принятия решений, выделяет и использует сильные стороны людей. Использует с пользой кризисы и конфликты — и становится от этого лучше.<br><br>
-        В итоге: система целенаправленно движется к результату, проявляя волю и настойчивость.<br><br>
+        <strong>В итоге:</strong> система целенаправленно движется к результату, проявляя волю и настойчивость.<br><br>
         <em>Продолжительность — 3 дня, либо 6 занятий (очно или онлайн)</em>
       </div>
       <a href="programma_stupen2.html" class="btn-secondary">Подробная программа →</a>
